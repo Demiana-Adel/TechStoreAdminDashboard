@@ -1,0 +1,24 @@
+<div class="container m-2">
+    <table class="table table-bordered my-5 tableContainer ">
+        <thead>
+            <tr>
+                <th >Specification Name </th>
+                <th  class="text-center" colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let specific of(resultOfSearch? resultOfSearch:specifications.entities ) | paginate: { itemsPerPage:pageItem ,currentPage: pageNumber, totalItems: totalCount} ">
+                <td>{{specific.name}}</td>
+                <td>
+                    <button class="btn btn-danger" mat-raised-button color="warn" (click)=" deleteSpecific(specific.id)">Delete</button>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="paginate">
+        <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+
+    </div>
+</div>

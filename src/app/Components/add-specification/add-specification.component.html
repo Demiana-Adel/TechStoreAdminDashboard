@@ -1,0 +1,10 @@
+
+<form (ngSubmit)="addNewSpecific()" method="post" enctype="multipart/form-data" class="form-container">
+    <div class="form-group">
+      <label class="form-label">Specification Name</label>
+      <input type="text" class="form-control" name="Name" [(ngModel)]="newSpecific.Name">
+    </div>
+    
+    <button type="submit" class="btn btn-primary submit-btn">Create Specification</button>
+  </form>
+  

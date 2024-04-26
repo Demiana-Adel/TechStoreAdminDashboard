@@ -1,0 +1,32 @@
+
+*{
+    color: #ffffff;
+}
+
+.sidebar-wrap {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #2a2e32;
+    padding: 10px;
+    transition: 0.8s;
+    margin-left: 0px;
+}
+
+.smail-screen {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  .smail-screen {
+    display: block;
+  }
+}
+.larg-screen {
+  display: none;
+}
+
+@media only screen and (min-width: 601px) {
+  .larg-screen {
+    display: block;
+  }
+}
+

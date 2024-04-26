@@ -1,0 +1,22 @@
+
+<form (ngSubmit)="addNewCategory()" method="post" enctype="multipart/form-data" class="form-container">
+  <div class="form-group">
+    <label class="form-label">Category Name</label>
+    <input type="text" class="form-control" name="Name" [(ngModel)]="newCategory.Category.Name">
+  </div>
+  <div class="form-group checkboxs" *ngFor="let specific of Specifications.entities  | paginate: { itemsPerPage:pageItem ,currentPage: pageNumber, totalItems: totalCount} ">
+    <input type="checkbox"
+           name="Id"
+           [value]="specific.id"
+           id="{{ specific.id }}"
+           [(ngModel)]="specific.isSelected"
+           (change)="addSpecification()">
+    <label class="form-label m-2" [for]="specific.id">{{ specific.name }}</label>
+    
+  </div>
+  <!-- <div class="paginate">
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+
+  </div> -->
+  <button type="submit" class="btn btn-primary submit-btn">Create Category</button>
+</form>

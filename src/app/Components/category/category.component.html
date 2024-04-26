@@ -1,0 +1,34 @@
+
+<div class="container m-2">
+    <div class="search-container">
+        <input type="text" class="search-input" name="search" [(ngModel)]="textSearch">
+        <button class="search-button" (click)="searchOfCategory()">Search</button>
+    </div>
+    <div class="table-container">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th >Name</th>
+                    <th  class="text-center" colspan="3">Action</th>
+                 </tr>
+            </thead>
+            <tbody> <tbody>
+                <ng-container
+                    *ngIf="(resultOfSearch ? resultOfSearch : categories.entities).length > 0; else noResults">
+                    <tr *ngFor="let category of (resultOfSearch ? resultOfSearch : categories.entities)">
+                        <td>{{ category.name }}</td>
+                        <td><button class="btn btn-success" (click)="updateCatecory(category.id)">Edit</button></td>
+                        <td><button class="btn btn-danger" (click)="deleteCategory(category.id)">Delete</button></td>
+                        <td><button class="btn btn-secondary" (click)="showSpecific(category.id)">showSpecification</button></td>
+
+                    </tr>
+                </ng-container>
+                <ng-template #noResults>
+                    <tr>
+                        <td colspan="2" class="no-results">No categories found</td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </table>
+    </div>
+</div>
